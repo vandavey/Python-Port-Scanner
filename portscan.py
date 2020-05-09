@@ -9,9 +9,14 @@ from colorama import Fore, Style
 def ipv4_parse(ipaddr):
     try:
         IPv4Address(ipaddr)
-        return True
+        if not 7 <= len(ipaddr) <= 15:
+            return False
+        if ipaddr.count(".") != 3:
+            return False
     except:
         return False
+    else:
+        return True
 
 
 def int_parse(integer):
